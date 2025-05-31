@@ -11,9 +11,9 @@ import { CartModule } from './carrito/carrito.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    TypeOrmModule.forRoot({
+     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DB_HOST,
+      host: process.env.DB_HOST || '127.0.0.1',
       port: parseInt(process.env.DB_PORT || '5432', 10),
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
