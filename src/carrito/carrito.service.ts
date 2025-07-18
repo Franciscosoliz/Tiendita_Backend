@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CartItem } from './carrito.entity';
+import { Carrito } from './carrito.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class CartService {
-  constructor(@InjectRepository(CartItem) private repo: Repository<CartItem>) {}
+  constructor(@InjectRepository(Carrito) private repo: Repository<Carrito>) {}
 
   findAll(userId: number) {
     return this.repo.find({ where: { userId } });

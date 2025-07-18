@@ -3,14 +3,17 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './usuarios/usuarios.module';
-import { ProductsModule } from './productos/productos.module';
-import { PaymentsModule } from './pagos/pagos.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
+import { ProductossModule } from './productos/productos.module';
+import { PagossModule } from './pagos/pagos.module';
 import { CartModule } from './carrito/carrito.module';
+import { MongooseModule } from '@nestjs/mongoose';
+
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
+    MongooseModule.forRoot(process.env.MONGO_URI || ''),
      TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST || '127.0.0.1',
@@ -23,9 +26,9 @@ import { CartModule } from './carrito/carrito.module';
       ssl: { rejectUnauthorized: false },
     }),
 
-    UsersModule,
-    ProductsModule,
-    PaymentsModule,
+    UsuariosModule,
+    ProductossModule,
+    PagossModule,
     CartModule,
   ],
   controllers: [AppController],

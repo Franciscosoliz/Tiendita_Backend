@@ -1,9 +1,9 @@
 import { Controller, Post, Get, Body, Param } from '@nestjs/common';
-import { PaymentsService } from './pagos.service';
+import { PagossService } from './pagos.service';
 
-@Controller('payments')
-export class PaymentsController {
-  constructor(private readonly service: PaymentsService) {}
+@Controller('pagos')
+export class PagossController {
+  constructor(private readonly service: PagossService) {}
 
   @Post()
   create(@Body() body) {
