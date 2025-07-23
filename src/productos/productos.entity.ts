@@ -16,4 +16,11 @@ export class productos {
 
   @Column()
   stock: number;
+  
+  @Column( {nullable: true})
+  imagen?: string;
+  
+  @Column( {nullable: true})
+  tipo?: string;
+  
 }
