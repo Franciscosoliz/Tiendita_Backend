@@ -6,12 +6,12 @@ export class Usuarios {
   id: number;
 
   @Column()
-  email: string;
+  usuario: string;
 
   @Column()
   password: string;
 
-  @Column({ default: 'customer' })
-  role: string;
+  @Column({ default: 'user' })
+  rol: string;
 }
     

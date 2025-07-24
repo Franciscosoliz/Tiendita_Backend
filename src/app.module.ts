@@ -8,12 +8,15 @@ import { ProductossModule } from './productos/productos.module';
 import { PagossModule } from './pagos/pagos.module';
 import { CartModule } from './carrito/carrito.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { TiposModule } from './tipos/tipos.module';
+import { RolesModule } from './roles/roles.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    // MongooseModule.forRoot(process.env.MONGO_URI || ''),
+    MongooseModule.forRoot(process.env.MONGO_URI || ''),
      TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST || '127.0.0.1',
@@ -30,6 +33,9 @@ import { MongooseModule } from '@nestjs/mongoose';
     ProductossModule,
     PagossModule,
     CartModule,
+    TiposModule,
+    RolesModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
